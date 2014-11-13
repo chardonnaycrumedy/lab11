@@ -23,17 +23,13 @@ def animate():
     # Get the x and y co-ordinates of the circle
     x1, y1, x2, y2 = drawpad.coords(circle)
     if x2 > drawpad.winfo_width(): 
-        direction = - 5
+        drawpad.move(circle,-800,0)
     elif x1 < 0:
-        direction = 5
+        direction = 10
     #Move our oval object by the value of direction
     drawpad.move(circle,direction,0)
     # Wait for 1 millisecond, then recursively call our animate function
     drawpad.after(1, animate)
-    #wrap (what's going on here?)
-class ObjectWrapper:
-    def __init__(self, parent): 
-        self.circle.wrap(self.wrap)
 
 #Kick off our animation
 animate()
